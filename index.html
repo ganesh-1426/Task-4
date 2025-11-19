@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>E‑Learning Platform — Demo Interface</title>
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#6ee7b7; --glass: rgba(255,255,255,0.03);
+      --radius:12px; --gap:16px; --maxw:1100px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#071022 0%, #061226 100%);color:#e6eef6;min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:28px}
+    .app{width:100%;max-width:var(--maxw)}
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));backdrop-filter: blur(6px);box-shadow: 0 6px 18px rgba(2,6,23,0.7)}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#3dd9ff);display:flex;align-items:center;justify-content:center;font-weight:700;color:#022;}
+    input.search{background:var(--glass);border:1px solid rgba(255,255,255,0.03);padding:10px 14px;border-radius:999px;color:var(--muted);width:360px}
+    nav.header-actions{display:flex;gap:12px;align-items:center}
+    button.cta{background:var(--accent);border:none;padding:10px 14px;border-radius:10px;font-weight:600;color:#022}
+
+    .layout{display:grid;grid-template-columns:280px 1fr 360px;gap:var(--gap);margin-top:18px}
+    .sidebar{background:var(--card);padding:16px;border-radius:var(--radius);min-height:520px}
+    .sidebar h3{margin:0 0 12px 0}
+    .menu{display:flex;flex-direction:column;gap:8px}
+    .menu a{display:flex;gap:12px;align-items:center;padding:10px;border-radius:10px;color:var(--muted);text-decoration:none}
+    .menu a.active{background:linear-gradient(90deg, rgba(255,255,255,0.015), rgba(255,255,255,0));color:#e6eef6}
+    .profile{display:flex;align-items:center;gap:12px;padding-top:12px;border-top:1px dashed rgba(255,255,255,0.02);margin-top:12px}
+
+    .main{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:var(--radius);min-height:520px}
+    .hero{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+    .hero .title{max-width:65%}
+    .courses-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .card{background: rgba(255,255,255,0.02);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .card img{width:100%;height:120px;object-fit:cover;border-radius:8px}
+    .card h4{margin:8px 0 4px}
+    .card p{margin:0;color:var(--muted);font-size:13px}
+
+    .right{background:var(--card);padding:16px;border-radius:var(--radius);min-height:520px}
+    .lesson{display:flex;flex-direction:column;gap:10px}
+    .video{background:#000;border-radius:10px;height:210px;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+    .progress{height:8px;background:rgba(255,255,255,0.03);border-radius:999px;overflow:hidden}
+    .progress > span{display:block;height:100%;width:48%;background:linear-gradient(90deg,var(--accent),#3dd9ff)}
+
+    footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* Responsive */
+    @media (max-width:1100px){.layout{grid-template-columns:1fr}} 
+    @media (max-width:680px){input.search{width:140px}.courses-grid{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width:420px){.courses-grid{grid-template-columns:1fr}}
+
+    /* small utility */
+    .tag{display:inline-block;padding:6px 8px;border-radius:999px;border:1px solid rgba(255,255,255,0.03);font-size:12px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="brand">
+        <div class="logo">EL</div>
+        <div>
+          <div style="font-weight:700">EduLight</div>
+          <div style="font-size:12px;color:var(--muted)">Modern e‑learning demo</div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:12px;align-items:center;">
+        <input class="search" placeholder="Search courses, topics or instructors" />
+        <nav class="header-actions">
+          <button class="tag">My Courses</button>
+          <button class="cta">Create course</button>
+        </nav>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <h3>Browse</h3>
+        <div class="menu">
+          <a href="#" class="active">📚 Dashboard</a>
+          <a href="#">🎧 My Learning</a>
+          <a href="#">📂 Catalog</a>
+          <a href="#">✍️ Assignments</a>
+          <a href="#">🧾 Certificates</a>
+          <a href="#">⚙️ Settings</a>
+        </div>
+
+        <div class="profile">
+          <img src="https://via.placeholder.com/52" alt="avatar" style="border-radius:10px;width:52px;height:52px;object-fit:cover">
+          <div>
+            <div style="font-weight:700">Ganesh</div>
+            <div style="font-size:12px;color:var(--muted)">Student • 5 courses</div>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <div class="hero">
+          <div class="title">
+            <h2 style="margin:0">Continue learning</h2>
+            <p style="margin:6px 0 0;color:var(--muted)">Pick up where you left off or explore new courses curated for you.</p>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <div class="tag">HTML & CSS</div>
+            <div class="tag">Java</div>
+            <div class="tag">Python</div>
+          </div>
+        </div>
+
+        <section>
+          <h3 style="margin-top:0">Recommended courses</h3>
+          <div class="courses-grid">
+            <article class="card">
+              <img src="https://picsum.photos/seed/html/400/200" alt="course">
+              <h4>Modern HTML & CSS</h4>
+              <p>Build responsive websites from scratch — 12 lessons • Beginner</p>
+            </article>
+            <article class="card">
+              <img src="https://picsum.photos/seed/python/400/200" alt="course">
+              <h4>Python for Everybody</h4>
+              <p>Data structures, web scraping and automation — 18 lessons • Beginner</p>
+            </article>
+            <article class="card">
+              <img src="https://picsum.photos/seed/java/400/200" alt="course">
+              <h4>Java Fundamentals</h4>
+              <p>OOP, collections and practical projects — 22 lessons • Intermediate</p>
+            </article>
+
+            <article class="card">
+              <img src="https://picsum.photos/seed/ui/400/200" alt="course">
+              <h4>UI Design Essentials</h4>
+              <p>Design systems, Figma basics and prototyping — 14 lessons • Beginner</p>
+            </article>
+            <article class="card">
+              <img src="https://picsum.photos/seed/data/400/200" alt="course">
+              <h4>Intro to Data Science</h4>
+              <p>Statistics, pandas and visualization — 16 lessons • Intermediate</p>
+            </article>
+            <article class="card">
+              <img src="https://picsum.photos/seed/devops/400/200" alt="course">
+              <h4>DevOps Fundamentals</h4>
+              <p>CI/CD, containers, deployment — 10 lessons • Intermediate</p>
+            </article>
+          </div>
+        </section>
+
+      </main>
+
+      <aside class="right">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <div style="font-weight:700">Current lesson</div>
+          <div style="font-size:13px;color:var(--muted)">Progress</div>
+        </div>
+
+        <div class="lesson">
+          <div class="video">📺 Video player (demo)</div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:700">Lesson 4: Responsive Layouts</div>
+              <div style="font-size:13px;color:var(--muted)">HTML & CSS • 12:34</div>
+            </div>
+            <div style="font-size:13px;color:var(--muted)">48% complete</div>
+          </div>
+
+          <div class="progress"><span></span></div>
+
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <button class="tag">Notes</button>
+            <button class="tag">Resources</button>
+            <button class="tag">Discussion</button>
+          </div>
+
+          <div style="margin-top:12px">
+            <h4 style="margin:0 0 8px 0">Upcoming</h4>
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">
+              <img src="https://via.placeholder.com/42" style="width:42px;height:42px;border-radius:8px;object-fit:cover">
+              <div style="font-size:13px;color:var(--muted)">Quiz: CSS Box Model — due in 2 days</div>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center">
+              <img src="https://via.placeholder.com/42" style="width:42px;height:42px;border-radius:8px;object-fit:cover">
+              <div style="font-size:13px;color:var(--muted)\">Project: Build a landing page — due next week</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      Demo interface — save the file as <code>elearning.html</code> and open it in a browser. Want this as a React component or with real backend data? Ask and I’ll add it.
+    </footer>
+  </div>
+
+  <script>
+    // Minimal interactivity demo: quick search filtering of course cards
+    const search = document.querySelector('.search');
+    search.addEventListener('input', function(){
+      const q = this.value.toLowerCase().trim();
+      document.querySelectorAll('.card').forEach(card =>{
+        const title = card.querySelector('h4').textContent.toLowerCase();
+        if(!q || title.includes(q)) card.style.display = '';
+        else card.style.display = 'none';
+      })
+    });
+  </script>
+</body>
+</html>
